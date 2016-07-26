@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <br><br><br>
+    <div class="container">
+
+        <div class="blog-header">
+            <h1 class="blog-title">Ekin'in Blog</h1>
+            <p class="lead blog-description">Blogdaki tüm yazıların olduğu sayfadır.</p>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-8 blog-main">
+                {% for y in yazilar %}
+                <div class="blog-post">
+                    <h2 class="blog-post-title">{{ y.baslik }}</h2>
+                    <p class="blog-post-meta">{{ y.ozet }}<a href="{{ path('yazi',{'slug':y.id}) }}">devamı için tıklayınız</a></p>
+                </div><!-- /.blog-post -->
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
